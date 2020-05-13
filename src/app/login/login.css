@@ -1,0 +1,16 @@
+.login{
+    height: 100vh;
+    background: var(--grey-light);
+}
+.login button[type="submit"]{
+    width: 100%;
+    margin:0;
+}
+.login .logo{
+    margin-bottom: 70px;;
+}
+.login .form{
+    border-radius: 10px;
+    padding: 20px;
+    border: solid 3px var(--orange-primary);
+}
