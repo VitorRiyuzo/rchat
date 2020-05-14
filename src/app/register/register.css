@@ -1,0 +1,7 @@
+.register{
+    height: 100vh;
+    background: var(--grey-light);
+}
+.register button[type="submit"]{
+    float: right;
+}
