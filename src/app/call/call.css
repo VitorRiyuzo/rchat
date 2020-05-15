@@ -1,0 +1,25 @@
+.call{
+    background:black;
+    padding: 15px;
+}
+.call #remote{
+    height:80vh
+}
+.call #local{
+    height:20vh
+}
+.call .end{
+    position: fixed;
+    bottom:5px;
+    right:5px;
+}
+@media only screen and (max-width: 600px) {
+    .call #remote{
+        width:100vw;
+        max-height:80vh;
+    }
+    .call #local{
+        width:100vw;
+        max-height:20vh;
+    }
+}

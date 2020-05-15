@@ -1,0 +1,16 @@
+.messages-view{
+    height: 100%;
+}
+.messages-view header{
+    background: green;
+}
+.messages-view header img{
+    width:40px;
+    height: 40px;
+}
+.messages-view main{
+    background:orange;
+}
+.messages-view footer{
+    background:grey
+}

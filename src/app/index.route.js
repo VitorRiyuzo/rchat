@@ -52,6 +52,12 @@
           }
         }
       })
+      .state('call', {
+        url: '/call',
+        templateUrl: 'app/call/call.html',
+        controller: 'CallController',
+        controllerAs: 'call'
+      })
 
     $urlRouterProvider.otherwise('/');
   }

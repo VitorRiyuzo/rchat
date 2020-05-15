@@ -1,12 +1,32 @@
 <div class="dashboard">
-    <h1>Dashboard</h1>
-    <div layout="row">
-        <div class="main" flex-gt-sm="30" flex="{{dashboard.main}}" ui-view = "main">First item in row</div>
-        <div class="messages" flex-gt-sm="70" flex="{{dashboard.messages}}" ui-view="messages">Second item in row</div>
+    
+    <div layout="row" class="h-100">
+        <div class="main" style="height: 100%;" flex-gt-sm="30" flex="{{dashboard.main}}">
+            <div class="h-100" layout="column">
+                <md-toolbar flex="10" class="md-hue-2" layout-align="center center">
+                    <div class="md-toolbar-tools" layout="row" layout-align="center center">
+                        <div flex="30">
+                            <img  ng-src="assets/images/jasmine.png" class="md-avatar">
+                        </div>
+                        <h5 flex="50">Icon Buttons</h5>
+                        <md-button flex="20"class="md-icon-button" aria-label="More">
+                            <md-icon md-font-icon="material-icon">more_vert</md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <div flex="" ui-view = "main"></div>
+            </div>
+        </div>
+        <div class="messages h-100" flex-gt-sm="70" flex="{{dashboard.messages}}" ui-view="messages">
+
+        </div>
     </div>
-
-
-
+    <!-- <div layout="column">
+    
+        <div flex="66">First item in column</div>
+        <div flex="33">Second item in column</div>
+    
+    </div> -->
 
     <!-- <div ui-view = "main">
         
