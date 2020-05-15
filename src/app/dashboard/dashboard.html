@@ -9,16 +9,47 @@
                             <img  ng-src="assets/images/jasmine.png" class="md-avatar">
                         </div>
                         <h5 flex="50">Icon Buttons</h5>
-                        <md-button flex="20"class="md-icon-button" aria-label="More">
+                        <md-button flex="20"class="md-icon-button" ng-click="dashboard.menuToggle()" aria-label="More">
                             <md-icon md-font-icon="material-icon">more_vert</md-icon>
                         </md-button>
                     </div>
                 </md-toolbar>
-                <div flex="" ui-view = "main"></div>
+                <div id="menu">
+                    <md-list class="pd-0">
+                        <md-list-item class="md-2-line" ng-click="null">
+                            <md-icon md-font-icon="material-icon">perm_identity</md-icon>
+                            <div class="md-list-item-text" layout="column">
+                                <h3>Perfil</h3>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                        <md-list-item class="md-2-line" ng-click="null">
+                            <md-icon md-font-icon="material-icon">chat</md-icon>
+                            <div class="md-list-item-text" layout="column">
+                                <h3>Conversas</h3>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                        <md-list-item class="md-2-line" ng-click="null">
+                            <md-icon md-font-icon="material-icon">contacts</md-icon>
+                            <div class="md-list-item-text" layout="column">
+                                <h3>Contatos</h3>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                        <md-list-item class="md-2-line" ng-click="null">
+                            <md-icon md-font-icon="material-icon">exit_to_app</md-icon>
+                            <div class="md-list-item-text" layout="column">
+                                <h3>Sair</h3>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                    </md-list>
+                </div>
+                <div flex="" ng-if="!dashboard.menu" ui-view = "main"></div>
             </div>
         </div>
         <div class="messages h-100" flex-gt-sm="70" flex="{{dashboard.messages}}" ui-view="messages">
-
         </div>
     </div>
     <!-- <div layout="column">

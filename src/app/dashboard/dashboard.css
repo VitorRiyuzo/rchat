@@ -21,3 +21,7 @@
     height: 40px;
     margin-right:10px;
 }
+.dashboard #menu{
+    background:yellow;
+    display:none;
+}

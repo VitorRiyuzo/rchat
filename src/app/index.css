@@ -95,3 +95,9 @@ section.jumbotron h1 {
 .txt-center{
   text-align: center;
 }
+.pd-0{
+  padding: 0;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
