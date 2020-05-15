@@ -1,3 +1,3 @@
-angular.module('rchat').controller('CallController', function ($scope, $log) {
+angular.module('rchat').controller('CallController', function () {
 
 })

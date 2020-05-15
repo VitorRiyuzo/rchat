@@ -52,6 +52,26 @@
           }
         }
       })
+      .state('contacts', {
+        url: '/contacts',
+        views: {
+          '': {
+            templateUrl: 'app/dashboard/dashboard.html',
+            controller: 'DashboardController',
+            controllerAs: 'dashboard'
+          },
+          'main@contacts': {
+            templateUrl: 'app/contacts/contacts.html',
+            controller: 'ContactsController',
+            controllerAs: 'contacts'
+          },
+          'messages@contacts': {
+            templateUrl: 'app/messages/messages.html',
+            controller: 'MessagesController',
+            controllerAs: 'messages'
+          }
+        }
+      })
       .state('call', {
         url: '/call',
         templateUrl: 'app/call/call.html',

@@ -92,4 +92,6 @@ section.jumbotron h1 {
 .pd-15{
   padding: 15px;
 }
-
+.txt-center{
+  text-align: center;
+}
