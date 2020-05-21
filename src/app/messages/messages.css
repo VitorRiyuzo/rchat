@@ -1,16 +1,39 @@
 .messages-view{
     height: 100%;
 }
+.messages-view h2{
+    color:white
+}
 .messages-view header{
-    background: green;
+    background: rgb(52, 59, 111);
+    border-left: solid 1px #e6e6e6;
 }
 .messages-view header img{
     width:40px;
     height: 40px;
 }
 .messages-view main{
-    background:orange;
+    background:white;
+    overflow-y: scroll;
+    border-left:solid 0.5px #e6e6e6;
 }
 .messages-view footer{
-    background:grey
+    background:#ebebeb;
+}
+.messages-view .talk{
+    padding:10px;
+    max-width:80%;
+    margin:15px;
+    display:inline-block;
+    color:white;
+}
+.messages-view .local{
+    border-radius: 10px 0 10px 10px;
+    float: right;
+    background: #004080;
+}
+.messages-view .remote{
+    background: #bf6000;
+    border-radius: 0 10px 10px 10px;
+    float: left;
 }

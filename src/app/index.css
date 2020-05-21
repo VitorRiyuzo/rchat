@@ -101,3 +101,6 @@ section.jumbotron h1 {
 .cursor-pointer{
   cursor: pointer;
 }
+.clear-both{
+  clear: both;
+}

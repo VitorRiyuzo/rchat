@@ -1,6 +1,6 @@
 
-angular.module('rchat').controller('MessagesController', function (LoginService) {
+angular.module('rchat').controller('MessagesController', function () {
     var vm = this;
     vm.teste = "Teste";
-    LoginService.exempleFunction();
+    vm.messages = ["olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça", "olá", "tudobem", "como vai voce", "iai", "oi", "preguiça", "muita preguiça"]
 });

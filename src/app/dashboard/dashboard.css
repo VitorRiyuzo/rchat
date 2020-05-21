@@ -9,11 +9,9 @@
     height: 100%;
 }
 .dashboard .main{
-    background:red;
     height: 90%;
 }
 .dashboard .messages{
-    background:blue;
     height: 90%;
 }
 .dashboard md-toolbar img{
@@ -22,6 +20,5 @@
     margin-right:10px;
 }
 .dashboard #menu{
-    background:yellow;
     display:none;
 }

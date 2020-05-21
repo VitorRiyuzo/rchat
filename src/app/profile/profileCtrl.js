@@ -1,2 +1,2 @@
-angular.module('rchat').controller('ProfileController', function ($log) {
+angular.module('rchat').controller('ProfileController', function () {
 })
