@@ -1,11 +1,10 @@
 /* eslint-disable no-undef */
-angular.module('rchat').controller('RegisterController', function ($log, GlobalService, $state, RegisterService) {
+angular.module('rchat').controller('RegisterController', function ($log, $rootScope, GlobalService, $state, RegisterService) {
     var vm = this;
     vm.teste = "Teste";
     vm.register = register;
-    $log.log(GlobalService);
     function register(user) {
-        $log.log(user);
+        $rootScope.setLoad(true);
         if(user.password == user.confirmPassword){
             var userData={
                 email:user.email,
@@ -15,6 +14,7 @@ angular.module('rchat').controller('RegisterController', function ($log, GlobalS
             userData.credentialCC = GlobalService.guid();
             var userCC = { 'login':userData.credentialCC, 'email': userData.email , password: userData.credentialCC};
             RegisterService.registerCC(userCC,userData, function() {
+                $rootScope.setLoad(false);
                 swal("Sucesso!", "Cadastro realizado com sucesso!", "success");
                 $state.go("login");
             });

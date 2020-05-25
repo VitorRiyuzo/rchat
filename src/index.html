@@ -23,7 +23,9 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+    <div ng-if="loading" class="loading">
+      <md-progress-circular md-mode="indeterminate" md-diameter="100"></md-progress-circular>
+    </div>
     <div ui-view class="h-100"></div>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>

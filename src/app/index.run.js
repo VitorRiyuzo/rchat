@@ -1,3 +1,4 @@
+/* eslint-disable angular/no-private-call */
 /* eslint-disable no-undef */
 (function() {
   'use strict';
@@ -7,8 +8,14 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log) {
-
+  function runBlock($log, $rootScope) {
+    $rootScope.loading = false;
+    $rootScope.setLoad = function (status) {
+      $rootScope.loading = status;
+      if (!$scope.$$phase) {
+        $scope.$apply();
+      }
+    }
     $log.debug('runBlock end');
     localStorage.setItem('steps','[]');
     var firebaseConfig = {

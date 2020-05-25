@@ -104,3 +104,19 @@ section.jumbotron h1 {
 .clear-both{
   clear: both;
 }
+.loading{
+  position:fixed;
+  width:100vw;
+  height:100vh;
+  background: black;
+  opacity: 0.75;
+  z-index:900000;
+  display: flex;
+}
+.loading md-progress-circular{
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top: -50px;
+  margin-left: -50px;
+}
