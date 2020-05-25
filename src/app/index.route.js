@@ -99,7 +99,7 @@
         controllerAs: 'call'
       })
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/login');
   }
 
 })();

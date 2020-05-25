@@ -1,21 +1,21 @@
 <div class="register" layout="row" layout-align="center center">
     <div flex="90" class="form" flex-gt-sm="40">
-        <form ng-submit="register">
+        <form ng-submit="register.register(user)">
             <md-input-container class="md-block">
                 <label>Email</label>
-                <input ng-model="user.email" type="email">
+                <input ng-model="user.email" required type="email">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Telefone</label>
-                <input mask="(99)9?9999-9999" ng-model="user.phone_number" type="text">
+                <input mask="(99)9?9999-9999" required ng-model="user.phone_number" type="text">
             </md-input-container>
             <md-input-container class="md-block">
-                <label>Alterar Senha</label>
-                <input ng-model="user.password" type="password">
+                <label>Senha</label>
+                <input minlength="6" required ng-model="user.password" type="password">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Confirmar senha</label>
-                <input ng-model="user.password" type="password">
+                <input minlength="6" required ng-model="user.confirmPassword" type="password">
             </md-input-container>
             <md-button type="submit" class="md-primary md-raised"> Cadastrar</md-button>
         </form>
