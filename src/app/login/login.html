@@ -4,15 +4,17 @@
         <div class="logo" layout="row" layout-align="center center">
             <img src="assets/images/logo-horizontal-02.png" alt="">
         </div>
-        <md-input-container  class="md-block">
-            <label>Email</label>
-            <input ng-model="user.email" type="email">
-        </md-input-container>
-        <md-input-container  class="md-block">
-            <label>Senha</label>
-            <input ng-model="user.email" type="password">
-        </md-input-container>
-        <md-button type="submit" class="md-primary md-raised" ng-click="acceptOffer();"> Entar</md-button>
+        <form ng-submit="login.login(user)">
+            <md-input-container  class="md-block">
+                <label>Email</label>
+                <input ng-model="user.email" required type="email">
+            </md-input-container>
+            <md-input-container  class="md-block">
+                <label>Senha</label>
+                <input ng-model="user.password" required type="password">
+            </md-input-container>
+            <md-button type="submit" class="md-primary md-raised"> Entar</md-button>
+        </form>
         <md-divider></md-divider>
         <div layout="row" layout-align="end center">
             <div>Ainda não tem conta?</div>

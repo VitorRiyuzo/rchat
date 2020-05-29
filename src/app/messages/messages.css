@@ -5,6 +5,7 @@
     color:white
 }
 .messages-view header{
+    min-height: 65px;
     background: rgb(52, 59, 111);
     border-left: solid 1px #e6e6e6;
 }

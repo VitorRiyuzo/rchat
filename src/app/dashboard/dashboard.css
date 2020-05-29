@@ -7,6 +7,7 @@
 }
 .layout-row{
     height: 100%;
+
 }
 .dashboard .main{
     height: 90%;
@@ -21,4 +22,12 @@
 }
 .dashboard #menu{
     display:none;
+}
+.dashboard md-toolbar h5{
+    text-align: center;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+.md-avatar{
+    border-radius: 50%;
 }

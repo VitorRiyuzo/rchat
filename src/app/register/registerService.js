@@ -6,7 +6,7 @@ angular.module('rchat').service('RegisterService', ['GlobalService', function (G
     var service = this;
     service.registerCC= function (userCC,userData,callback) {
         GlobalService.initCC(function () {
-            ConnectyCube.createSession(function (error, session) {
+            ConnectyCube.createSession(function () {
                 ConnectyCube.users.signup(userCC, function (error, user) {
                     if (!error) {
                         userData.idCC = user.id;
