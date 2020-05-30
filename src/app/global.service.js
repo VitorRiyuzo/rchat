@@ -125,6 +125,12 @@ angular.module('rchat').service('GlobalService', ['$rootScope',function ($rootSc
             console.log("atualiza o me");
             $rootScope.me = snapshot.val();
             $rootScope.me.uid = uid;
+            $rootScope.me.name = $rootScope.me.email.split('@')[0];
+            if (!$rootScope.me.avatar) {
+                $rootScope.me.avatar = "/assets/images/profile.png";
+            }
+            $rootScope.update();
+            console.log($rootScope.me);
             localStorage.setItem("me", JSON.stringify($rootScope.me));
         }
         //MAPPING USER INFO

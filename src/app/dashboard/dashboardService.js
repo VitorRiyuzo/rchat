@@ -23,10 +23,8 @@ angular.module('rchat').service("DashboardService", ['$rootScope', 'GlobalServic
             } else {
                 $rootScope.setLoad(true);
                 $rootScope.me = JSON.parse(localStorage.getItem('me'));
-                $rootScope.me.name = $rootScope.me.email.split('@')[0];
-                if(!$rootScope.me.avatar){
-                    $rootScope.me.avatar = "/assets/images/profile.png";
-                }
+                console.log($rootScope.me);
+                GlobalService.mappingUserMe($rootScope.me.uid);
                 GlobalService.initCC(function() {
                     GlobalService.loginCC(function() {
                         GlobalService.listennerCC();
