@@ -38,3 +38,6 @@
     border-radius: 0 10px 10px 10px;
     float: left;
 }
+.messages-view footer .layout-row{
+    padding:10px;
+}

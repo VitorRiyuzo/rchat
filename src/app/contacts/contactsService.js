@@ -32,9 +32,12 @@ angular.module('rchat').service("ContactsService", ['$rootScope', 'GlobalService
             uidList.push(i);
         }
         function getDetail(uid) {
-            firebase.database('users/'+uid).once('value', function(snapshot) {
+            firebase.database().ref('users/' + uid).once('value', function(snapshot) {
                 var user = snapshot.val();
                 user.uid = uid;
+                if (!user.avatar) {
+                    user.avatar = 'assets/images/profile.png'
+                }
                 response.push(user);
                 count++;
                 if(response.length < uidList.length){
@@ -47,7 +50,9 @@ angular.module('rchat').service("ContactsService", ['$rootScope', 'GlobalService
         getDetail(uidList[count]);
     }
     service.addContact = function(user,callback) {
-        firebase.database('users/' + $rootScope.me.uid+'/contacts/'+user.uid).set(true);
+        console.log(user);
+        console.log($rootScope.me);
+        firebase.database().ref('users/' + $rootScope.me.uid + '/contacts/' + user.uid).set(true);
         callback();
     }
 }])

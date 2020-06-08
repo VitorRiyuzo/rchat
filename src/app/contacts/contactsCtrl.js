@@ -5,16 +5,19 @@
 /* eslint-disable angular/di */
 angular.module('rchat').controller('ContactsController',['ContactsService','$rootScope', function (ContactsService, $rootScope) {
     var vm = this;
-    vm.add = false;
+    //vm.add = false;
     vm.toggleAdd = toggleAdd;
     vm.searchUser = searchUser;
     vm.listSearch = [];
     vm.users = [];
+    
     vm.addContact = addContact;
     (function init() {
         if($rootScope.me.contacts){
             ContactsService.getContacts(function(contacts) {
                 vm.users = contacts;
+                vm.add =false;
+                vm.search = "";
                 $rootScope.update();
             });
         }
@@ -27,23 +30,28 @@ angular.module('rchat').controller('ContactsController',['ContactsService','$roo
         }
     }
     function addContact(user) {
+        console.log("addcontact");
         for(var y in vm.users){
             if(vm.users[y].uid == user.uid){
                 swal('Atenção','Esse contato já está em sua lista', 'warning');
             }
         }
+        console.log("Alert add contacts");
+        
         swal({
             title: "Adicionar?",
-            html: true,
             text: 'Deseja adicionar ' + user.email,
-            type: "success",
+            type: "warning",
             closeOnConfirm: true,
             showCancelButton: true,
-        }, function () {
-            ContactsService.addContact(user,function() {
-                swal('Sucesso!', "Contato adicionado","success");
-                init();
-            });
+        }).then(function (isConfirm) {
+            console.log("callback");
+            if(isConfirm){
+                ContactsService.addContact(user,function() {
+                    swal('Sucesso!', "Contato adicionado","success");
+                    init();
+                });
+            }
         })
     }
     function searchUser(search) {
