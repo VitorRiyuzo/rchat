@@ -28,6 +28,9 @@
     overflow-wrap: break-word;
     overflow: hidden;
 }
+.dashboard  .banner{
+    background: #666666;
+}
 .md-avatar{
     border-radius: 50%;
 }

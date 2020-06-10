@@ -12,6 +12,7 @@
 .messages-view header img{
     width:40px;
     height: 40px;
+    border-radius: 50%;
 }
 .messages-view main{
     background:white;
@@ -28,6 +29,12 @@
     display:inline-block;
     color:white;
 }
+.messages-view .back{
+    position: absolute;
+    margin:5px;
+    color:white;
+    cursor: pointer;
+}
 .messages-view .local{
     border-radius: 10px 0 10px 10px;
     float: right;
@@ -40,4 +47,12 @@
 }
 .messages-view footer .layout-row{
     padding:10px;
+}
+.messages-view-mobile{
+    height: 100vh;
+    width: 100vw;
+    background:red;
+}
+.messages-view-mobile .index-message{
+    z-index:1000;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable angular/timeout-service */
 /* eslint-disable angular/on-watch */
 /* eslint-disable angular/no-private-call */
 /* eslint-disable no-undef */
@@ -8,7 +9,7 @@
 		.run(runBlock);
 
 	/** @ngInject */
-	function runBlock($log,$rootScope) {
+	function runBlock($log,$rootScope,$window) {
 		$log.debug('runBlock end');
 		localStorage.setItem('steps','[]');
 		var firebaseConfig = {
@@ -23,6 +24,15 @@
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
 		$rootScope.loading = false;
+		$rootScope.idChat = null;
+		if ($window.innerWidth < 960){
+			$rootScope.isMobile = true;
+		}else{
+			$rootScope.isMobile = false;
+		}
+		// setTimeout(function(){
+		// 	$rootScope.idChat = "-M9OSDA-O73mpEjlZE4V";
+		// }, 1000);
 		$rootScope.$on('$stateChangeSuccess', function (event, toState) {
 			$rootScope.route = toState.name;
 			if ($rootScope.route !== "login") {

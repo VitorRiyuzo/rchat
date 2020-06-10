@@ -55,4 +55,29 @@ angular.module('rchat').service("ContactsService", ['$rootScope', 'GlobalService
         firebase.database().ref('users/' + $rootScope.me.uid + '/contacts/' + user.uid).set(true);
         callback();
     }
+    service.addChat = function(user, callback) {
+        //Criar chat em nó de chats
+        var members = {}
+        console.log(user);
+        members[user.uid] = true;
+        members[$rootScope.me.uid] = true;
+        var newKey = firebase.database().ref().push().key;
+        console.log(newKey);
+        firebase.database().ref("chats/" + newKey).set({ members: members });
+
+        //Adiciona referência do chat, em nó de cada integrante
+        var chat1 = {};
+        chat1 = {
+            user_id: user.uid,
+            active: true
+        };
+        var chat2 = {};
+        chat2 = {
+            user_id: $rootScope.me.uid,
+            active: true
+        }; 
+        firebase.database().ref('/users/' + $rootScope.me.uid + "/chats/" + newKey).set(chat1);
+        firebase.database().ref('/users/' + user.uid + "/chats/" + newKey).set(chat2);
+        callback(newKey);
+    }
 }])

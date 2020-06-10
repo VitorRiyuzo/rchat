@@ -1,6 +1,6 @@
 <div class="dashboard">
     <div layout="row" class="h-100">
-        <div class="main" style="height: 100%;" flex-gt-sm="30" flex="{{dashboard.main}}">
+        <div class="main" style="height: 100%;" ng-show="!isMobile || isMobile && !idChat" flex-gt-sm="30" flex="{{dashboard.main}}">
             <div class="h-100" layout="column">
                 <md-toolbar flex="10" class="md-hue-2" layout-align="center center">
                     <div class="md-toolbar-tools" layout="row" layout-align="center center">
@@ -48,7 +48,10 @@
                 <div flex="" ng-if="!dashboard.menu" ui-view = "main"></div>
             </div>
         </div>
-        <div class="messages h-100" flex-gt-sm="70" flex="{{dashboard.messages}}" ui-view="messages">
+        <div class="banner" flex-gt-sm="70" hide="" show-md="" show-lg="" layout="column" layout-align="center center" ng-show="!idChat">
+            <img src="assets/images/r-chat-05.png" alt="">
+        </div>
+        <div class="messages h-100" flex-gt-sm="70" flex="{{dashboard.messages}}" ui-view="messages" ng-show="idChat">
         </div>
     </div>
     <!-- <div layout="column">

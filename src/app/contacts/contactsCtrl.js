@@ -12,6 +12,7 @@ angular.module('rchat').controller('ContactsController',['ContactsService','$roo
     vm.users = [];
     
     vm.addContact = addContact;
+    vm.newChannel = newChannel;
     (function init() {
         if($rootScope.me.contacts){
             ContactsService.getContacts(function(contacts) {
@@ -22,6 +23,23 @@ angular.module('rchat').controller('ContactsController',['ContactsService','$roo
             });
         }
     })()
+
+    function newChannel(user) {
+        if ($rootScope.me.chats){
+            for(var k in $rootScope.me.chats){
+                if ($rootScope.me.chats[k].user_id == user.uid){
+                   //$state.go('messages',{id:k})
+                   $rootScope.idChat = k;
+                   return; 
+                }
+            }
+        }
+        // ContactsService.addChat(user, function(chatKey) {
+        //     console.log(chatKey);
+        //     alert("adicionou");
+        //     //$state.go('messages',{id:chatKey});
+        // })
+    }
     function toggleAdd() {
         if(!vm.add){
             vm.add = true;

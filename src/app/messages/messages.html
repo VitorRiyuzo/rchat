@@ -1,11 +1,12 @@
-<div layout="column" class="messages-view">
+<div layout="column" class="messages-view" >
     <header flex="10">
+        <md-icon class="back" ng-click="messages.back()" ng-show="isMobile" md-font-icon="material-icon">keyboard_backspace</md-icon>
         <div layout="row" layout-align="space-around center">
             <div>
-                <img src="assets/images/gulp.png" alt="">
+                <img src="{{messages.receiver.avatar}}" alt="">
             </div>
             <div>
-                <h2>Carlos Tavares</h2>
+                <h2>{{messages.receiver.name}}</h2>
             </div>
             <div >
                 <md-button class="md-raised md-cornered md-icon-button">
@@ -16,8 +17,8 @@
     </header>
     <main flex="75">
         <div class="clear-both" ng-repeat="item in messages.messages track by $index">
-            <div class="talk" ng-class="{'remote':item == 'tudobem','local':item!='tudobem'}">
-                {{item}}
+            <div class="talk" ng-class="{'remote':item.user_id != me.uid,'local':item.user_id == me.uid}">
+                {{item.message}}
             </div>
         </div>
     </main>
@@ -26,11 +27,11 @@
             <div flex="90">
                 <md-input-container class="md-block">
                     <label>Envie uma mensagem</label>
-                    <textarea ng-model="user.biography" md-maxlength="150" rows="3" md-select-on-focus></textarea>
+                    <textarea ng-model="message.textSend" md-maxlength="150" rows="3" md-select-on-focus></textarea>
                 </md-input-container>
             </div>
             <div flex="10" class="txt-center">
-                <md-button class="md-raised md-cornered md-icon-button" ng-click="dashboard.menuToggle()" aria-label="More">
+                <md-button class="md-raised md-cornered md-icon-button" ng-click="messages.sendMessage(message.textSend)" aria-label="More">
                     <md-icon md-font-icon="material-icon">send</md-icon>
                 </md-button>
             </div>
