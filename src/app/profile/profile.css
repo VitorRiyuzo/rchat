@@ -1,3 +1,29 @@
 .profile form{
     width: 90%;
 }
+.profile .modalcut{
+    width:100vw;
+    height: 100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(0, 0, 0, 0.8);
+    opacity: 1;
+}
+.profile .modalcut button{
+    position: fixed;
+    bottom: 20px;
+    width:200px;
+    left:50%;
+    margin-left:-100px;
+}
+.profile .avatar{
+    text-align: center;
+    padding: 10px;
+}
+.profile .avatar img{
+    border-radius: 50%;
+    width:60%;
+    height: 60%;
+}

@@ -1,4 +1,8 @@
 
-.channels md-content.md-default-theme, md-content{
+/* .channels md-content.md-default-theme, md-content{
     background: transparent;
+} */
+.channels md-list{
+    width:90%;
+    cursor: pointer;
 }

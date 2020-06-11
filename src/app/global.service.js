@@ -1,3 +1,4 @@
+/* eslint-disable angular/document-service */
 /* eslint-disable no-unused-vars */
 /* eslint-disable angular/log */
 /* eslint-disable no-console */
@@ -138,15 +139,52 @@ angular.module('rchat').service('GlobalService', ['$rootScope',function ($rootSc
             mappingUser(snapshot);
         });
     };
+    service.resizeBase64Img = function (base64, callback) {
+        var canvas = document.createElement("canvas");
+        var ctx = canvas.getContext("2d");
+        img = new Image();
+        img.onload = function () {
 
-    //RANDOM KEY
-    $rootScope.guid = function () {
-        function s4() {
-            return Math.floor((1 + Math.random()) * 0x10000)
-                .toString(16)
-                .substring(1);
+            canvas.height = canvas.width * (img.height / img.width);
+
+            // step 1
+            var oc = document.createElement('canvas'),
+                octx = oc.getContext('2d');
+
+            oc.width = img.width * 0.5;
+            oc.height = img.height * 0.5;
+            octx.drawImage(img, 0, 0, oc.width, oc.height);
+
+            // step 2
+            octx.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5);
+
+            ctx.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5,
+                0, 0, canvas.width, canvas.height);
+            callback(canvas);
+        };
+        img.src = base64;
+    };
+    service.blobToFile = function (theBlob, fileName) {
+        theBlob.lastModifiedDate = new Date();
+        theBlob.name = fileName;
+        theBlob.filename = fileName;
+        return theBlob;
+    };
+    service.b64toBlob = function (b64Data, contentType, sliceSize) {
+        contentType = contentType || '';
+        sliceSize = sliceSize || 512;
+        var byteCharacters = atob(b64Data);
+        var byteArrays = [];
+        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            var slice = byteCharacters.slice(offset, offset + sliceSize);
+            var byteNumbers = new Array(slice.length);
+            for (var i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
+            var byteArray = new Uint8Array(byteNumbers);
+            byteArrays.push(byteArray);
         }
-        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-            s4() + '-' + s4() + s4() + s4();
+        var blob = new Blob(byteArrays, { type: contentType });
+        return blob;
     };
 }])

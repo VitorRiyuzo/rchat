@@ -1,11 +1,19 @@
+/* eslint-disable angular/log */
+/* eslint-disable no-console */
 
-angular.module('rchat').controller('ChannelsController', function ($scope, $log) {
+angular.module('rchat').controller('ChannelsController', function ($scope,$rootScope, ChannelsService) {
     var vm = this;
-    vm.message = message;
+    vm.getChat = getChat;
     vm.dashboard = $scope.dashboard;
-    $log.log($scope.dashboard);
-    function message() {
-        vm.dashboard.main = 0;
-        vm.dashboard.messages = 100;
+    vm.chats = [];
+    (function() {
+        ChannelsService.getChats(function(chats) {
+            vm.chats = chats;
+            console.log(chats);
+        })
+    })()
+    function getChat(chat) {
+        console.log(chat);
+        $rootScope.idChat = chat.uid;
     }
 });

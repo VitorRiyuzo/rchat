@@ -34,11 +34,10 @@ angular.module('rchat').controller('ContactsController',['ContactsService','$roo
                 }
             }
         }
-        // ContactsService.addChat(user, function(chatKey) {
-        //     console.log(chatKey);
-        //     alert("adicionou");
-        //     //$state.go('messages',{id:chatKey});
-        // })
+        ContactsService.addChat(user, function(chatKey) {
+            console.log(chatKey);
+            $rootScope.idChat = chatKey;
+        })
     }
     function toggleAdd() {
         if(!vm.add){
