@@ -35,4 +35,4 @@ angular.module('rchat').controller('ProfileController', function ($rootScope, Gl
             swal('Sucesso!', 'Dados foram atualizados', 'success');
         })
     }
-})
+});

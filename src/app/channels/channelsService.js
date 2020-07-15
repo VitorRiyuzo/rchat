@@ -39,4 +39,4 @@ angular.module('rchat').service("ChannelsService", ['$rootScope', function ($roo
         }
         getDetail()
     }
-}])
+}]);

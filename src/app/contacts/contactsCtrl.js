@@ -81,4 +81,4 @@ angular.module('rchat').controller('ContactsController',['ContactsService','$roo
             });
         }
     }
-}])
+}]);

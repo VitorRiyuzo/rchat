@@ -34,4 +34,4 @@ angular.module('rchat').service("DashboardService", ['$rootScope', 'GlobalServic
             }
         }
     }
-}])
+}]);

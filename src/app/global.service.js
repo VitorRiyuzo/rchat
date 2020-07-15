@@ -86,11 +86,7 @@ angular.module('rchat').service('GlobalService', ['$rootScope',function ($rootSc
                     },
                         function (isConfirm) {
                             if (isConfirm) {
-                                for (var t in $rootScope.me.chats) {
-                                    if ($rootScope.me.chats[t].user_id == $rootScope.me.call.user_uid) {
-                                        $state.go("messages", { id: t, receiveCall: true });
-                                    }
-                                }
+                                $state.go("call", { status:"receiving"});
                                 $rootScope.onCallSession = session;
                             } else {
                                 session.reject({});

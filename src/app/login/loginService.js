@@ -47,4 +47,4 @@ angular.module('rchat').service("LoginService",['$rootScope','GlobalService', fu
             swal("Erro", error.message, "error");
         })
     };
-}])
+}]);

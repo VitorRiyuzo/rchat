@@ -80,4 +80,4 @@ angular.module('rchat').service("ContactsService", ['$rootScope', 'GlobalService
         firebase.database().ref('/users/' + user.uid + "/chats/" + newKey).set(chat2);
         callback(newKey);
     }
-}])
+}]);

@@ -21,4 +21,4 @@ angular.module('rchat').service("ProfileService", ['$rootScope', function ($root
         firebase.database().ref('users/' + $rootScope.me.uid).update(obj);
         callback()
     }
-}])
+}]);

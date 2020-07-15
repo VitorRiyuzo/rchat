@@ -52,4 +52,4 @@ angular.module('rchat').service('RegisterService', ['GlobalService', function (G
             swal("Erro", "Não foi possivel completar registro", "error");
         })
     }
-}])
+}]);

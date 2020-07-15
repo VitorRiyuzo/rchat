@@ -31,4 +31,4 @@ angular.module('rchat').service("MessagesService", ['$rootScope', function ($roo
         firebase.database().ref('messages/'+chatId).push(message);
         callback();
     }
-}])
+}]);
